@@ -3,24 +3,29 @@ server:
 
 eureka:
   instance:
-    hostname: registry
+    hostname: 127.0.0.1
+    #hostname: registry
     prefer-ip-address: true
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
   client:
-    service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+    serviceUrl:
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@${eureka.instance.hostname}:8761/eureka/
+      #defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
 
 spring:
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/zhangxd1989/spring-boot-cloud
+          uri: https://github.com/yuanmenghaixin/spring-boot-cloud
           search-paths: config-repo
+          username: 710584845@qq.com                                            # git仓库的账号
+          password:                                          # git仓库的密码
   rabbitmq:
-    host: rabbitmq
+    host: 127.0.0.1
+    #host: rabbitmq
 
 security:
   user:
