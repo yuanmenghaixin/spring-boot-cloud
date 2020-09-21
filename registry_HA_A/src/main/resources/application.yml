@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: eureka-HA-cluster
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    #hostname: registry
+    prefer-ip-address: true
+  client:
+    #registerWithEureka: false #由于应用为注册中心，设置为false代表不向注册中心注册自己
+    #fetchRegistry: false #由于注册中心的职责就是维护服务实例，它不需要去检索服务，所以设置为false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:8762/eureka/
+
+security:
+  user:
+    name: user
+    password:  ${CONFIG_SERVER_PASSWORD:password} #可以设置统一的密码，eureka的defaultZone的密码也需要修改

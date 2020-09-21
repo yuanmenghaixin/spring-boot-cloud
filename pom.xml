@@ -19,7 +19,8 @@
 
     <modules>
         <module>config</module>
-        <module>registry</module>
+        <module>registry_ha_a</module>
+		<module>registry_ha_b</module>
         <module>gateway</module>
         <module>monitor</module>
         <module>auth-service</module>

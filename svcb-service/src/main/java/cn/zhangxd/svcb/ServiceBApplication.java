@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
+//开启断路器工能
 @EnableCircuitBreaker
 @EnableOAuth2Client
 public class ServiceBApplication {
